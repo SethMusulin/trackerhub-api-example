@@ -7,9 +7,18 @@
 
 <hr/>
 
-<h1>Comments</h1>
+<h1>Tracker Comments</h1>
 <ul>
-    <% @comments.each do |comment| %>
+    <% @tracker_comments.each do |comment| %>
+        <li><%= comment.text %></li>
+    <% end %>
+</ul>
+
+<hr/>
+
+<h1>GitHub Comments</h1>
+<ul>
+    <% @github_comments.each do |comment| %>
         <li><%= comment.text %></li>
     <% end %>
 </ul>

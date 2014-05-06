@@ -18,7 +18,7 @@ class TrackerApi
     story_ids  = options.fetch(:story_ids)
 
     story_ids.flat_map do |story_id|
-      get("/projects/#{project_id}/stories/#{story_id}/comments", Comment)
+      get("/projects/#{project_id}/stories/#{story_id}/comments", TrackerComment)
     end
   end
 

@@ -33,4 +33,13 @@ feature "a user viewing their projects" do
       expect(page).to have_content("This is a comment on the comment story")
     end
   end
+  
+  scenario "viewing github comments associated with stories" do
+    VCR.use_cassette "features/projects/github_comments" do
+      visit "/projects/1073652"
+
+      expect(page).to have_content("[#70776466] Implement comments on projects")
+      expect(page).to have_content("This is a comment on this commit")
+    end
+  end
 end
