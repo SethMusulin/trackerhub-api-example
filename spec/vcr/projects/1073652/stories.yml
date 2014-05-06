@@ -1,0 +1,127 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.pivotaltracker.com/services/v5/projects/1073652/stories
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      X-Trackertoken:
+      - f9120343531ad7f3be3604fbd209957e
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Tracker-Project-Version:
+      - '7'
+      X-Tracker-Pagination-Total:
+      - '3'
+      X-Tracker-Pagination-Offset:
+      - '0'
+      X-Tracker-Pagination-Limit:
+      - '100'
+      X-Tracker-Pagination-Returned:
+      - '3'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 1abd06ccb18eda8ed60a0a2c3ef0ce23
+      X-Runtime:
+      - '0.029743'
+      Date:
+      - Tue, 06 May 2014 16:33:27 GMT
+      X-Rack-Cache:
+      - miss
+      X-Powered-By:
+      - Phusion Passenger 4.0.41
+      Server:
+      - nginx/1.6.0 + Phusion Passenger 4.0.41
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'false'
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - X-TrackerToken,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,X-Tracker-Warn-Unless-Project-Version-Is
+    body:
+      encoding: UTF-8
+      string: |-
+        [
+          {
+            "kind": "story",
+            "id": 70776286,
+            "created_at": "2014-05-06T16:28:35Z",
+            "updated_at": "2014-05-06T16:33:07Z",
+            "story_type": "feature",
+            "name": "As a user, I can view all of my projects",
+            "description": "Show all the projects for your api token (https://www.pivotaltracker.com/help/api#Basics)",
+            "current_state": "unstarted",
+            "requested_by_id": 1308466,
+            "project_id": 1073652,
+            "url": "https://www.pivotaltracker.com/story/show/70776286",
+            "owner_ids": [
+
+            ],
+            "labels": [
+
+            ]
+          },
+          {
+            "kind": "story",
+            "id": 70776396,
+            "created_at": "2014-05-06T16:31:21Z",
+            "updated_at": "2014-05-06T16:31:21Z",
+            "story_type": "feature",
+            "name": "As a user, I can view all of the stories for a project",
+            "description": "When I go to the homepage\nAnd I click on a project\nI see a list of all of that projects stories",
+            "current_state": "unstarted",
+            "requested_by_id": 1308466,
+            "project_id": 1073652,
+            "url": "https://www.pivotaltracker.com/story/show/70776396",
+            "owner_ids": [
+
+            ],
+            "labels": [
+
+            ]
+          },
+          {
+            "kind": "story",
+            "id": 70776466,
+            "created_at": "2014-05-06T16:32:09Z",
+            "updated_at": "2014-05-06T16:31:51Z",
+            "story_type": "feature",
+            "name": "As a user, I can view comments for a story",
+            "description": "Given I'm on a project story list\nWhen I click on a story\nI see all of the comments for that story\n",
+            "current_state": "unstarted",
+            "requested_by_id": 1308466,
+            "project_id": 1073652,
+            "url": "https://www.pivotaltracker.com/story/show/70776466",
+            "owner_ids": [
+
+            ],
+            "labels": [
+
+            ]
+          }
+        ]
+    http_version: 
+  recorded_at: Tue, 06 May 2014 16:33:26 GMT
+recorded_with: VCR 2.9.0

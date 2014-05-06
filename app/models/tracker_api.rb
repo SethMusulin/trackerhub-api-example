@@ -13,6 +13,18 @@ class TrackerApi
     end
   end
 
+  def stories(options)
+    project_id = options.fetch(:project_id)
+
+    stories_hashes = JSON.parse(
+      connection.get("/services/v5/projects/#{project_id}/stories").body
+    )
+
+    stories_hashes.map do |story_hash|
+      Story.new(story_hash)
+    end
+  end
+
   private
 
   def connection

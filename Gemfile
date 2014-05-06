@@ -9,10 +9,12 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
+
 gem 'faraday'
 
 group :development, :test do
+  gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'dotenv-rails'
 end
 

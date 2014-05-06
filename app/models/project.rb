@@ -6,4 +6,8 @@ class Project
   def name
     @project_hash["name"]
   end
+
+  def id
+    @project_hash["id"]
+  end
 end
