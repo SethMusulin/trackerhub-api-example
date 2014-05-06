@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Tue, 06 May 2014 22:30:14 GMT
+      - Tue, 06 May 2014 22:41:58 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -31,7 +31,7 @@ http_interactions:
       X-Ratelimit-Limit:
       - '60'
       X-Ratelimit-Remaining:
-      - '58'
+      - '51'
       X-Ratelimit-Reset:
       - '1399418266'
       Cache-Control:
@@ -57,17 +57,87 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Github-Request-Id:
-      - AD0E15D1:041E:672E660:53696276
+      - AD0E15D1:041F:82704A8:53696536
       Strict-Transport-Security:
       - max-age=31536000
       X-Content-Type-Options:
       - nosniff
       X-Served-By:
-      - 6d7de9e645814cac34ea2a8d72ba3141
+      - 03d91026ad8428f4d9966d7434f9d82e
     body:
       encoding: UTF-8
       string: '[{"url":"https://api.github.com/repos/jetaggart/tracker-api-example/comments/6228757","html_url":"https://github.com/jetaggart/tracker-api-example/commit/9bb903237447a032c80ba87cd6437c6769dfcd8c#commitcomment-6228757","id":6228757,"user":{"login":"jetaggart","id":161737,"avatar_url":"https://avatars.githubusercontent.com/u/161737?","gravatar_id":"ba5a9e5d58ca27cc667aaf826ce91032","url":"https://api.github.com/users/jetaggart","html_url":"https://github.com/jetaggart","followers_url":"https://api.github.com/users/jetaggart/followers","following_url":"https://api.github.com/users/jetaggart/following{/other_user}","gists_url":"https://api.github.com/users/jetaggart/gists{/gist_id}","starred_url":"https://api.github.com/users/jetaggart/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/jetaggart/subscriptions","organizations_url":"https://api.github.com/users/jetaggart/orgs","repos_url":"https://api.github.com/users/jetaggart/repos","events_url":"https://api.github.com/users/jetaggart/events{/privacy}","received_events_url":"https://api.github.com/users/jetaggart/received_events","type":"User","site_admin":false},"position":null,"line":null,"path":null,"commit_id":"9bb903237447a032c80ba87cd6437c6769dfcd8c","created_at":"2014-05-06T17:23:48Z","updated_at":"2014-05-06T17:23:48Z","body":"This
         is a comment on this commit"}]'
     http_version: 
-  recorded_at: Tue, 06 May 2014 22:30:14 GMT
+  recorded_at: Tue, 06 May 2014 22:41:58 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/jetaggart/tracker-api-example/commits/bb670aa13fbd5228871fd1170f047b4e12ccd555/comments
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Tue, 06 May 2014 22:41:59 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '50'
+      X-Ratelimit-Reset:
+      - '1399418266'
+      Cache-Control:
+      - public, max-age=60, s-maxage=60
+      Etag:
+      - '"4870721238a728486fe7f9c85552b408"'
+      Vary:
+      - Accept
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - AD0E15D1:041D:4616EA2:53696537
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - 03d91026ad8428f4d9966d7434f9d82e
+    body:
+      encoding: UTF-8
+      string: '[{"url":"https://api.github.com/repos/jetaggart/tracker-api-example/comments/6232843","html_url":"https://github.com/jetaggart/tracker-api-example/commit/bb670aa13fbd5228871fd1170f047b4e12ccd555#commitcomment-6232843","id":6232843,"user":{"login":"jetaggart","id":161737,"avatar_url":"https://avatars.githubusercontent.com/u/161737?","gravatar_id":"ba5a9e5d58ca27cc667aaf826ce91032","url":"https://api.github.com/users/jetaggart","html_url":"https://github.com/jetaggart","followers_url":"https://api.github.com/users/jetaggart/followers","following_url":"https://api.github.com/users/jetaggart/following{/other_user}","gists_url":"https://api.github.com/users/jetaggart/gists{/gist_id}","starred_url":"https://api.github.com/users/jetaggart/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/jetaggart/subscriptions","organizations_url":"https://api.github.com/users/jetaggart/orgs","repos_url":"https://api.github.com/users/jetaggart/repos","events_url":"https://api.github.com/users/jetaggart/events{/privacy}","received_events_url":"https://api.github.com/users/jetaggart/received_events","type":"User","site_admin":false},"position":null,"line":null,"path":null,"commit_id":"bb670aa13fbd5228871fd1170f047b4e12ccd555","created_at":"2014-05-06T22:40:34Z","updated_at":"2014-05-06T22:40:34Z","body":"This
+        is a second commit comment"}]'
+    http_version: 
+  recorded_at: Tue, 06 May 2014 22:41:59 GMT
 recorded_with: VCR 2.9.0
