@@ -1,10 +1,10 @@
-class GitHubApi
+class GitHubApi < BaseApi
   def comments_for(options)
     tracker_comments = options.fetch(:tracker_comments)
 
     commit_comments = tracker_comments.select(&:commit_comment?)
 
-    commit_comments .flat_map do |tracker_comment|
+    commit_comments.flat_map do |tracker_comment|
       text       = tracker_comment.text.split("/")
       owner      = text[3]
       project_id = text[4]
@@ -18,17 +18,7 @@ class GitHubApi
 
   private
 
-  def get_json(url)
-    JSON.parse(
-      connection.get(url).body
-    )
-  end
-
-  alias :get :get_json
-
-  def connection
-    Faraday.new(:url => "https://api.github.com") do |faraday|
-      faraday.adapter(Faraday.default_adapter)
-    end
+  def base_url
+    "https://api.github.com"
   end
 end
