@@ -23,4 +23,14 @@ feature "a user viewing their projects" do
       expect(page).to have_content("As a user, I can view all of the stories for a project")
     end
   end
+
+  scenario "viewing comments on a story" do
+    VCR.use_cassette "features/projects/story_comments" do
+      visit "/projects/1073652"
+      
+      expect(page).to have_content("This is a test comment on the first story")
+      expect(page).to have_content("This is a second test comment on the first story")
+      expect(page).to have_content("This is a comment on the comment story")
+    end
+  end
 end

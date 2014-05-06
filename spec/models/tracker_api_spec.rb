@@ -28,4 +28,22 @@ describe TrackerApi do
       end
     end
   end
+
+  describe "#comments" do
+    it "lists all comments for all stories" do
+      VCR.use_cassette "projects/1073652/stories/comments" do
+        story_ids = [70776396, 70776466, 70776286]
+
+        comments = TrackerApi.new.comments(:project_id => 1073652,
+                                           :story_ids  => story_ids)
+
+        expect(comments.length).to eq(3)
+
+        names = comments.map(&:text)
+        expect(names).to include("This is a test comment on the first story")
+        expect(names).to include("This is a second test comment on the first story")
+        expect(names).to include("This is a comment on the comment story")
+      end
+    end
+  end
 end

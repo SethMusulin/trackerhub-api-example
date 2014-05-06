@@ -1,5 +1,15 @@
+<h1>Stories</h1>
 <ul>
     <% @stories.each do |story| %>
         <li><%= story.name %></li>
+    <% end %>
+</ul>
+
+<hr/>
+
+<h1>Comments</h1>
+<ul>
+    <% @comments.each do |comment| %>
+        <li><%= comment.text %></li>
     <% end %>
 </ul>

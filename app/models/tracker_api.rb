@@ -4,26 +4,37 @@ class TrackerApi
   end
 
   def projects
-    get("/services/v5/projects").map do |project_hash|
-      Project.new(project_hash)
-    end
+    get("/projects", Project)
   end
 
   def stories(options)
     project_id = options.fetch(:project_id)
 
-    get("/services/v5/projects/#{project_id}/stories").map do |story_hash|
-      Story.new(story_hash)
+    get("/projects/#{project_id}/stories", Story)
+  end
+
+  def comments(options)
+    project_id = options.fetch(:project_id)
+    story_ids  = options.fetch(:story_ids)
+
+    story_ids.flat_map do |story_id|
+      get("/projects/#{project_id}/stories/#{story_id}/comments", Comment)
     end
   end
 
-  def get(url)
-    JSON.parse(
-      connection.get(url).body
-    )
+  private
+
+  def get(url, model_class)
+    get_json(url).map do |hash|
+      model_class.new(hash)
+    end
   end
 
-  private
+  def get_json(url)
+    JSON.parse(
+      connection.get("/services/v5#{url}").body
+    )
+  end
 
   def connection
     Faraday.new(:url => "https://www.pivotaltracker.com") do |faraday|
