@@ -4,11 +4,7 @@ class TrackerApi
   end
 
   def projects
-    project_hashes = JSON.parse(
-      connection.get("/services/v5/projects").body
-    )
-
-    project_hashes.map do |project_hash|
+    get("/services/v5/projects").map do |project_hash|
       Project.new(project_hash)
     end
   end
@@ -16,13 +12,15 @@ class TrackerApi
   def stories(options)
     project_id = options.fetch(:project_id)
 
-    stories_hashes = JSON.parse(
-      connection.get("/services/v5/projects/#{project_id}/stories").body
-    )
-
-    stories_hashes.map do |story_hash|
+    get("/services/v5/projects/#{project_id}/stories").map do |story_hash|
       Story.new(story_hash)
     end
+  end
+
+  def get(url)
+    JSON.parse(
+      connection.get(url).body
+    )
   end
 
   private
