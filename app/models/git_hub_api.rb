@@ -1,21 +1,45 @@
 class GitHubApi < BaseApi
   def comments_for(options)
     tracker_comments = options.fetch(:tracker_comments)
-    commit_comments = tracker_comments.select(&:commit_comment?)
-    
-    commit_comments.flat_map do |tracker_comment|
-      text       = tracker_comment.text.split("/")
-      owner      = text[3]
-      project_id = text[4]
-      commit_sha = text[6].split(" ").first
+    commit_comments  = tracker_comments.select(&:commit_comment?)
 
-      get("/repos/#{owner}/#{project_id}/commits/#{commit_sha}/comments").map do |comment_hash|
+    commit_comments.flat_map do |tracker_comment|
+      url = comments_url(
+        owner: tracker_comment.owner,
+        repo:  tracker_comment.repo,
+        sha:   tracker_comment.sha
+      )
+      get(url).map do |comment_hash|
         GitHubComment.new(comment_hash)
       end
     end
   end
 
+  def create_comment(options)
+    body = {
+      body: options.fetch(:text)
+    }
+
+    GitHubComment.new(
+      post(comments_url(options), body)
+    )
+  end
+
+  def comments_url(options)
+    owner = options.fetch(:owner)
+    repo  = options.fetch(:repo)
+    sha   = options.fetch(:sha)
+
+    "/repos/#{owner}/#{repo}/commits/#{sha}/comments"
+  end
+
   private
+
+  def post(url, body)
+    JSON.parse(
+      connection.post(url, body.to_json).body
+    )
+  end
 
   def base_url
     "https://api.github.com"

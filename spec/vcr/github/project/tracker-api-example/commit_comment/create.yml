@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<GITHUB_USERNAME>:<GITHUB_PASSWORD>@api.github.com/repos/<GITHUB_USERNAME>/tracker-api-example/commits/bb670aa13fbd5228871fd1170f047b4e12ccd555/comments
+    body:
+      encoding: UTF-8
+      string: '{"body":"This is the comment text"}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Thu, 08 May 2014 16:37:19 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Status:
+      - 201 Created
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4935'
+      X-Ratelimit-Reset:
+      - '1399567969'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Etag:
+      - '"101220b449d6efe548b525c7b892acc2"'
+      Location:
+      - https://api.github.com/repos/<GITHUB_USERNAME>/tracker-api-example/comments/6258242
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      X-Github-Media-Type:
+      - github.v3
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Content-Length:
+      - '1350'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - AD0E15D1:041F:BDE02F8:536BB2BF
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://api.github.com/repos/<GITHUB_USERNAME>/tracker-api-example/comments/6258242","html_url":"https://github.com/<GITHUB_USERNAME>/tracker-api-example/commit/bb670aa13fbd5228871fd1170f047b4e12ccd555#commitcomment-6258242","id":6258242,"user":{"login":"<GITHUB_USERNAME>","id":161737,"avatar_url":"https://avatars.githubusercontent.com/u/161737?","gravatar_id":"ba5a9e5d58ca27cc667aaf826ce91032","url":"https://api.github.com/users/<GITHUB_USERNAME>","html_url":"https://github.com/<GITHUB_USERNAME>","followers_url":"https://api.github.com/users/<GITHUB_USERNAME>/followers","following_url":"https://api.github.com/users/<GITHUB_USERNAME>/following{/other_user}","gists_url":"https://api.github.com/users/<GITHUB_USERNAME>/gists{/gist_id}","starred_url":"https://api.github.com/users/<GITHUB_USERNAME>/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/<GITHUB_USERNAME>/subscriptions","organizations_url":"https://api.github.com/users/<GITHUB_USERNAME>/orgs","repos_url":"https://api.github.com/users/<GITHUB_USERNAME>/repos","events_url":"https://api.github.com/users/<GITHUB_USERNAME>/events{/privacy}","received_events_url":"https://api.github.com/users/<GITHUB_USERNAME>/received_events","type":"User","site_admin":false},"position":null,"line":null,"path":null,"commit_id":"bb670aa13fbd5228871fd1170f047b4e12ccd555","created_at":"2014-05-08T16:37:19Z","updated_at":"2014-05-08T16:37:19Z","body":"This
+        is the comment text"}'
+    http_version: 
+  recorded_at: Thu, 08 May 2014 16:37:17 GMT
+recorded_with: VCR 2.9.0

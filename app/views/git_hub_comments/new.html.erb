@@ -1,0 +1,10 @@
+<h1>Adding comment for commit <%= params[:sha] %></h1>
+
+<%= form_tag git_hub_comments_path(:project_id    => params[:id],
+                                   :owner => params[:owner],
+                                   :repo  => params[:repo],
+                                   :sha   => params[:sha]) do %>
+    <%= label_tag "text", "Text" %>
+    <%= text_field_tag "text" %>
+    <%= submit_tag "Save" %>
+<% end %>

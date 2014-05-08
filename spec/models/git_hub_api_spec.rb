@@ -24,4 +24,20 @@ describe GitHubApi do
       expect(commit_comments.length).to eq(0)
     end
   end
+
+  describe "#create_comment" do
+    it "creates a comment in github" do
+      VCR.use_cassette "github/project/tracker-api-example/commit_comment/create" do
+        git_hub_api = GitHubApi.new
+
+        comment = git_hub_api.create_comment(:owner => "jetaggart",
+                                             :repo  => "tracker-api-example",
+                                             :sha   => "bb670aa13fbd5228871fd1170f047b4e12ccd555",
+                                             :text  => "This is the comment text")
+
+        expect(comment.id).to be
+        expect(comment.text).to eq("This is the comment text")
+      end
+    end
+  end
 end

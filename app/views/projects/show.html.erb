@@ -1,24 +1,40 @@
-<h1>Stories</h1>
-<ul>
-    <% @stories.each do |story| %>
-        <li><%= story.name %></li>
-    <% end %>
-</ul>
+<section>
+    <h1>Stories</h1>
+    <ul>
+        <% @stories.each do |story| %>
+            <li><%= story.name %></li>
+        <% end %>
+    </ul>
+</section>
 
 <hr/>
 
-<h1>Tracker Comments</h1>
-<ul>
-    <% @tracker_comments.each do |comment| %>
-        <li><%= comment.text %></li>
-    <% end %>
-</ul>
+<section>
+    <h1>Tracker Comments</h1>
+    <ul>
+        <% @tracker_comments.each do |comment| %>
+            <% if comment.commit_comment? %>
+                <li>
+                    <%= comment.text %> - <%= link_to "Add Comment", new_git_hub_comment_path(:id    => params[:id],
+                                                                                              :owner => comment.owner,
+                                                                                              :repo  => comment.repo,
+                                                                                              :sha   => comment.sha) %>
+                </li>
+            <% else %>
+                <li><%= comment.text %></li>
+            <% end %>
+        <% end %>
+    </ul>
+
+</section>
 
 <hr/>
 
-<h1>GitHub Comments</h1>
-<ul>
-    <% @github_comments.each do |comment| %>
-        <li><%= comment.text %></li>
-    <% end %>
-</ul>
+<section>
+    <h1>GitHub Comments</h1>
+    <ul>
+        <% @github_comments.each do |comment| %>
+            <li><%= comment.text %></li>
+        <% end %>
+    </ul>
+</section>

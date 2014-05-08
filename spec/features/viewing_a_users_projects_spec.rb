@@ -42,4 +42,25 @@ feature "a user viewing their projects" do
       expect(page).to have_content("This is a comment on this commit")
     end
   end
+
+  scenario "allows a user to comment on a commit" do
+    VCR.use_cassette "features/projects/github_comments/create" do
+      visit "/projects/1073652"
+
+      within("li", :text => "[#70776466] Implement comments on projects") do
+        click_on "Add Comment"
+      end
+      
+      expect(page).to have_content("Adding comment for commit 9bb903237447a032c80ba87cd6437c6769dfcd8c")
+
+      fill_in "Text", with: "This is a comment I'm adding to GitHub"
+      click_on "Save"
+
+      visit "/projects/1073652"
+
+      within("section", :text => "GitHub Comments") do
+        expect(page).to have_content("This is a comment I'm adding to GitHub")
+      end
+    end
+  end
 end
