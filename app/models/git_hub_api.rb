@@ -1,9 +1,8 @@
 class GitHubApi < BaseApi
   def comments_for(options)
     tracker_comments = options.fetch(:tracker_comments)
-
     commit_comments = tracker_comments.select(&:commit_comment?)
-
+    
     commit_comments.flat_map do |tracker_comment|
       text       = tracker_comment.text.split("/")
       owner      = text[3]
@@ -20,5 +19,11 @@ class GitHubApi < BaseApi
 
   def base_url
     "https://api.github.com"
+  end
+
+  def connection
+    super.tap do |conn|
+      conn.basic_auth(ENV["GITHUB_USERNAME"], ENV["GITHUB_PASSWORD"])
+    end
   end
 end

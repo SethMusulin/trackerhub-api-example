@@ -7,7 +7,7 @@ feature "a user viewing their projects" do
 
       click_on "View Projects"
 
-      expect(page).to have_content("GitHub Explorer")
+      expect(page).to have_content("Github Issues - In class example")
       expect(page).to have_content("gSchool.it")
     end
   end

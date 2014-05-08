@@ -8,7 +8,7 @@ describe TrackerApi do
 
         names = projects.map(&:name)
 
-        expect(names).to include("GitHub Explorer")
+        expect(names).to include("Github Issues - In class example")
         expect(names).to include("gSchool.it")
       end
     end
@@ -19,12 +19,11 @@ describe TrackerApi do
       VCR.use_cassette "projects/1073652/stories" do
         stories = TrackerApi.new.stories(:project_id => 1073652)
 
-        expect(stories.length).to eq(3)
+        expect(stories.length).to eq(7)
 
         names = stories.map(&:name)
         expect(names).to include("As a user, I can view all of my projects")
         expect(names).to include("As a user, I can view all of the stories for a project")
-        expect(names).to include("As a user, I can view comments for a story")
       end
     end
   end
@@ -37,7 +36,7 @@ describe TrackerApi do
         comments = TrackerApi.new.comments(:project_id => 1073652,
                                            :story_ids  => story_ids)
 
-        expect(comments.length).to eq(3)
+        expect(comments.length).to eq(4)
 
         names = comments.map(&:text)
         expect(names).to include("This is a test comment on the first story")

@@ -18,5 +18,9 @@ RSpec.configure do |config|
   VCR.configure do |c|
     c.cassette_library_dir = 'spec/vcr'
     c.hook_into :webmock
+
+    c.filter_sensitive_data('<GITHUB_USERNAME>') { ENV['GITHUB_USERNAME'] }
+    c.filter_sensitive_data('<GITHUB_PASSWORD>') { ENV['GITHUB_PASSWORD'] }
+    c.filter_sensitive_data('<TRACKER_TOKEN>') { ENV['PIVOTAL_TOKEN'] }
   end
 end
