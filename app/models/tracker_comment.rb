@@ -4,7 +4,7 @@ class TrackerComment
   end
 
   def text
-    @comment_hash["text"]
+    @comment_hash.has_key?("text") ? @comment_hash["text"] : ""
   end
 
   def owner
